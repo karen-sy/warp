@@ -73,6 +73,11 @@ parser.add_argument("--no_standalone", dest="standalone", action="store_false")
 parser.set_defaults(standalone=True)
 
 
+## Custom additions
+parser.add_argument("--lineinfo", action="store_true", help="Generate line-number information for device code at compilation")
+parser.set_defaults(lineinfo=False)
+
+
 args = parser.parse_args()
 
 # set build output path off this file

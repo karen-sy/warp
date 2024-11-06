@@ -2703,13 +2703,15 @@ size_t cuda_compile_program(const char* cuda_src, int arch, const char* include_
         opts.push_back("--relocatable-device-code=true");
     }
 
+    opts.push_back("--generate-line-info");   // TODO clean up as part of config.py (e.g. deduplicate when mode=debug)
+
     nvrtcProgram prog;
     nvrtcResult res;
 
     res = nvrtcCreateProgram(
         &prog,         // prog
         cuda_src,      // buffer
-        NULL,          // name
+        "module_codegen.cu",  // name (replace from NULL for profiler to recognize source)
         0,             // numHeaders
         NULL,          // headers
         NULL);         // includeNames

@@ -1960,6 +1960,7 @@ class Module:
 
             # final object binary path
             binary_path = os.path.join(module_dir, output_name)
+            print(f"\nCOMPILED BINARY SAVED IN: {binary_path}\n")
 
             # -----------------------------------------------------------
             # check cache and build if necessary

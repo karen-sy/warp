@@ -212,6 +212,12 @@ def build_dll_for_arch(args, dll_path, cpp_paths, cu_path, libs, arch, mode=None
                     "-gencode=arch=compute_86,code=compute_86",
                 ]
 
+        ######## Custom additions ########
+        gcc_option = ["-ccbin g++-11"]  # force compatible gcc version for CUDA 12.6 local build
+        gencode_opts += gcc_option
+
+        ###################################
+
         nvcc_opts = gencode_opts + [
             "-t0",  # multithreaded compilation
             "--extended-lambda",

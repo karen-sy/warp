@@ -72,7 +72,6 @@ parser.add_argument("--standalone", action="store_true", help="Use standalone LL
 parser.add_argument("--no_standalone", dest="standalone", action="store_false")
 parser.set_defaults(standalone=True)
 
-
 args = parser.parse_args()
 
 # set build output path off this file

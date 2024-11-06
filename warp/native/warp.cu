@@ -2667,7 +2667,7 @@ size_t cuda_compile_program(const char* cuda_src, int arch, const char* include_
     if (debug)
     {
         opts.push_back("--define-macro=_DEBUG");
-        opts.push_back("--generate-line-info");
+        // opts.push_back("--generate-line-info");
         // disabling since it causes issues with `Unresolved extern function 'cudaGetParameterBufferV2'
         //opts.push_back("--device-debug");
     }
@@ -2703,7 +2703,7 @@ size_t cuda_compile_program(const char* cuda_src, int arch, const char* include_
         opts.push_back("--relocatable-device-code=true");
     }
 
-    opts.push_back("--generate-line-info");   // TODO clean up as part of config.py (e.g. deduplicate when mode=debug)
+    opts.push_back("--generate-line-info");  // Always enable to allow profiling
 
     nvrtcProgram prog;
     nvrtcResult res;
